@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Platform</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <input type="text" id="search" autocomplete="off" placeholder="Search for music...">
+        <img id="common-music-icon" class="music-list-icon" src="/assets/icons/common.png" width="30" alt="">
+    </header>
+    <div id="list-title">音乐列表</div>
+    <ul id="music-list">
+    </ul>
+    <ul id="common-music" style="display: none;">
+    </ul>
+    <div id="create-title">创建</div>
+    <ul id="create-music-list">
+    </ul>
+
+    <div id="player-controls">
+        <div id="current-info">
+            <img id="current-img" src="" alt="Current Music" width="50" style="display:none;">
+            <span id="current-title" style="display:none;"></span>
+        </div>
+        <div style="display: flex;flex-direction: column;">
+            <div style="display: flex;justify-content: center;">
+                <img src="./assets/icons/pre.png" id="prev" width="30" alt="">
+                <img src="./assets/icons/play.png" id="play-pause" style="width: 30px;height: 30px" alt="">
+                <img src="./assets/icons/next.png" id="next" width="30" alt="">
+                <div id="volume-block">
+                    <img class="volume-icon" src="/assets/icons/volume.png" width="30" alt="">
+                    <input type="range" id="volume" min="0" max="1" step="0.01" style="display: none;">
+                </div>
+            </div>
+            <input type="range" id="progress" min="0" max="100" value="0" style="width: 100%;display: none;">
+        </div>
+        <!-- 添加进度条 -->
+    </div>
+
+    <audio id="audio-player" controls style="display:none;"></audio>
+    <div class="shadow" style="display: none;"></div>
+    <!-- Modal -->
+    <div id="playlist-modal" class="modal">
+        <img src="./assets/icons/close.png" id="close" alt="">
+        <div class="modal-content">
+            <h3 id="modal-title">创建的歌单</h3>
+            <div id="create-music">
+                <div class="flex-center " id="add-music-item">
+                    <img src="/assets/icons/upload.png" width="50" alt="">
+                    <span>新建歌单</span>
+                </div>
+                <ul id="create-list"></ul>
+            </div>
+            <div id="upload-music">
+                <div id="upload-block">
+                    <input type="text" id="upload-input" placeholder="请输入歌单名">
+                    <button>创建</button>
+                </div>
+            </div>
+            <!-- 创建的歌单 -->
+            <ul id="playlist-layout" style="display: none;">
+            </ul>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
